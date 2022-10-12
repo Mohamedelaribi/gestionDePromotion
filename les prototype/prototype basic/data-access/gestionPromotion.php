@@ -1,17 +1,30 @@
 <?php
 
-    include 'databasePromotion.php';
+    include 'databaseConnection.php';
     include 'promotion.php';
 
 
-    class InsertData extends ConnectToDatabase{
+    class CrudPromotion extends ConnectToDatabase{
 
-        public function addtData(){
+        public function addtData($promotion){
             
-            $insert = "INSERT INTO promotion (namePromotion) VALUES("$this->namePromotion")";
+            $namePromotion = $promotion->getname();            
 
-            mysqli_query($this->connecte(),$insert)
+            $insert = "INSERT INTO promotion (namePromotion) VALUES('$namePromotion')";
 
+            mysqli_query($this->connecte(),$insert);
+
+        }
+
+
+        public function selectData(){
+
+            $select ="SELECT * FROM promotion";
+            $result = mysqli_query($this->connecte(),$select);
+
+            if($result ->num_rows > 0){
+                return $result;
+             }             
         }
     }
 

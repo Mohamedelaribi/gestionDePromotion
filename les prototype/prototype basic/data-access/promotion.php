@@ -1,6 +1,6 @@
 <?php
 
-    class promotion{
+    class Promotion{
 
         public $idPromotion;
         public $namePromotion;
