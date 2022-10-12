@@ -8,6 +8,7 @@
 
         public function addtData($promotion){
             
+
             $namePromotion = $promotion->getname();            
 
             $insert = "INSERT INTO promotion (namePromotion) VALUES('$namePromotion')";
@@ -26,8 +27,25 @@
                 return $result;
              }             
         }
-    }
 
+
+        public function selectById($updateId){
+            
+            $selectId = "SELECT * FROM promotion WHERE idPromotion ='$updateId'";
+            $idResult = mysqli_query($this->connecte(),$selectId);
+
+            if($idResult-> num_rows == 1){
+                return $idResult;
+            }
+        }
+
+
+        public function updatePromotion($promotionUpdate){
+            $update = "UPDATE `promotion` SET `namePromotion`='$updatePromo[namePromotion]' WHERE `idPromotion`='$idPromotion[idPropmotion]'";
+            $updateRsult = mysqli_query($this->connecte(),$update);
+
+        }
+    }
 
 
 ?>

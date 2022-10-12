@@ -57,8 +57,8 @@
                 echo 
                     '<tr>
                         <td>'.$rowData['namePromotion'].'</td>
-                        <td><a href="../data-access/update.php?update='.$rowData['idPromotion'].'">edit</a></td>
-                        <td>delet</td>
+                        <td><a href="update.php?updateId='.$rowData['idPromotion'].'">edit</a></td>
+                        <td><a href ="form.php?deletId='.$rowData['idPromotion'].'"delet</td>
                     </tr>';
                 }
                 ?>
