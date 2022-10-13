@@ -2,8 +2,8 @@
 
     class Promotion{
 
-        public $idPromotion;
-        public $namePromotion;
+        private $idPromotion;
+        private $namePromotion;
 
 
         function   __construct($idPromotion,$namePromotion){
@@ -11,10 +11,11 @@
             $this->namePromotion = $namePromotion;
         }
 
-        function  getId(){
+        public function  getId(){
             return $this->idPromotion;
         }
-        function  getname(){
+
+        public function  getname(){
             return $this->namePromotion;
         }
     }

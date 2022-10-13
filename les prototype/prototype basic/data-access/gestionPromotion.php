@@ -4,7 +4,7 @@
     include 'promotion.php';
 
 
-    class CrudPromotion extends ConnectToDatabase{
+    class GestionPromotion extends ConnectToDatabase{
 
         public function addtData($promotion){
             
@@ -41,7 +41,7 @@
 
 
         public function updatePromotion($promotionUpdate){
-            $update = "UPDATE `promotion` SET `namePromotion`='$updatePromo[namePromotion]' WHERE `idPromotion`='$idPromotion[idPropmotion]'";
+            $update = "UPDATE `promotion` SET `namePromotion`='$promotionUpdate[namePromotion]' WHERE `idPromotion`='$promotionUpdate[idPropmotion]'";
             $updateRsult = mysqli_query($this->connecte(),$update);
 
         }

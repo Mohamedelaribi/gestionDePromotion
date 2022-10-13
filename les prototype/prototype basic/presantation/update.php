@@ -2,7 +2,7 @@
 
     include "../data-access/gestionPromotion.php";
 
-        $updatePromotion = new CrudPromotion();
+        $updatePromotion = new GestionPromotion();
 
         $updateId = $_REQUEST['updateId'];
         $resultPromotion = $updatePromotion->selectById($updateId);
@@ -13,16 +13,7 @@
         }
 
 
-        if(isset($_POST['update'])){
-            if(isset($_POST["updatePromotion"])){
-                if(!empty($_POST["updatePromotion"])){
-                    $idPromotion['idPromotion'] = $updateId;
-                    $promotionUpdate["namePromotion"] = $_POST["updatePromotion"];
-                    $updatePromotion->updatePromotion($promotionUpdate);
-                }
-            }
-
-        }?>
+?>
 
 
 
@@ -35,7 +26,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" methode="POST">
+    <form action="updateCode.php" methode="POST">
         <label for="namePromotion">Nom promotion </label>
         <input type="text" id="namePromotion" name="updatePromotion" value ="<?php echo $singlePromotion['namePromotion']?>">
         <input type="submit" name="update">

@@ -2,18 +2,17 @@
 
     include '../data-access/gestionPromotion.php';
 
-    $insertPromotion = new CrudPromotion();
+    $promotionobject = new GestionPromotion();
 
     if(!empty($_POST)){
 
 
         $name = $_POST["namePromotion"];
         $promotion = new Promotion(NULL,$name);
-        $insertPromotion->addtData($promotion);
+        $promotionobject->addtData($promotion);
     }
 
-        $fetchPromotion = new CrudPromotion();
-        $resultData = $fetchPromotion->selectData();
+        $resultData = $promotionobject->selectData();
 
         if($resultData){
 
