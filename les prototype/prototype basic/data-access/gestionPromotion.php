@@ -30,7 +30,6 @@
 
 
         public function selectById($updateId){
-            
             $selectId = "SELECT * FROM promotion WHERE idPromotion ='$updateId'";
             $idResult = mysqli_query($this->connecte(),$selectId);
 
@@ -40,8 +39,8 @@
         }
 
 
-        public function updatePromotion($promotionUpdate){
-            $update = "UPDATE `promotion` SET `namePromotion`='$promotionUpdate[namePromotion]' WHERE `idPromotion`='$promotionUpdate[idPropmotion]'";
+        public function updatePromotion($id,$newName){
+            $update = "UPDATE `promotion` SET `namePromotion`='$newName' WHERE `idPromotion`='$id";
             $updateRsult = mysqli_query($this->connecte(),$update);
 
         }

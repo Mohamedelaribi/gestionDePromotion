@@ -2,20 +2,27 @@
 
     include "../data-access/gestionPromotion.php";
 
-        $updatePromotion = new GestionPromotion();
+        $promotionObject = new GestionPromotion();
 
-        $updateId = $_REQUEST['updateId'];
-        $resultPromotion = $updatePromotion->selectById($updateId);
+        if(isset($_GET['updateId'])){
+            $id = $_GET['updateId'];
+            $result = $promotionObject->selectById($id);
+            if($result){
+                foreach($result as $singlePromotion){
 
-        if(!empty($resultPromotion)){
-            foreach($resultPromotion as $singlePromotion){
+                }
             }
         }
 
+        if(isset($_POST['update'])){
+            $id = $_POST["idPromotion"];
+            $newName = $_POST["updatePromotion"];
+            $promotionObject->updatePromotion($id,$newName);
+
+            header('location:form.php');
+        }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +33,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="updateCode.php" methode="POST">
+    <form action="" methode="POST">
         <label for="namePromotion">Nom promotion </label>
+        <input type="hidden" name="idPromotion" value="<?php echo $singlePromotion['idPromotion']?>">
         <input type="text" id="namePromotion" name="updatePromotion" value ="<?php echo $singlePromotion['namePromotion']?>">
         <input type="submit" name="update">
     </form>
