@@ -10,7 +10,7 @@
         $newName = $_POST["newName"];
         $promotion = new Promotion($id,$newName);
         $promotionObject->update($promotion);
-        header('location: ../presentation/index.php');
+        header('location: ../presentation/form.php');
 
     }
 

@@ -65,13 +65,11 @@
             mysqli_query($this->connecte(),$delet);
         }
 
-
-    }
-
-
-
-
-
-
-
+        public function searchPromo($promotion){
+                $name = $promotion->getName();
+                $search = "SELECT * FROM promotion WHERE
+                namePromotion LIKE '%$name%' ";
+                return mysqli_query($this->connecte(), $search);
+            }
+        }
 ?>

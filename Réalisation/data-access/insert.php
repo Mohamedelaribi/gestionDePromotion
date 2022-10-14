@@ -12,6 +12,8 @@
         $promotion = new Promotion(NULL,$namePromotion);
 
         $promotionObject->insert($promotion);
+        
+        haeder('location: ../presentation/index.php');
     }
 
 
@@ -19,6 +21,12 @@
 
     if($resultData){
 
+    }
+
+    if(isset($_GET['deleteId'])){
+        $id = $_GET['deletId'];
+        $promotionObject->delete($id);
+        header("location: ../presentation/index.php");
     }
 
 

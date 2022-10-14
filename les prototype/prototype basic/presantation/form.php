@@ -17,15 +17,10 @@
         if($resultData){
 
         }
-
-
         if(isset($_GET['deletId'])){
           $idDelet = $_GET['deletId'];
           $promotionObject->delet($idDelet);
-          
         }
-
-
         ?>
 
 

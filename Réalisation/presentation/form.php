@@ -1,6 +1,6 @@
 <?php
 
-    include '../data-access/gestion.php';
+    include '../data-access/gestionPromotion.php';
 
     $promotionObject = new GestionPromotion();
 
@@ -17,7 +17,13 @@
         if($resultData){
 
         }
-     ?>
+        if(isset($_GET['deletId'])){
+          $idDelet = $_GET['deletId'];
+          $promotionObject->delete($idDelet);
+          header('location: form.php');
+        }
+        ?>
+
 
 
 
@@ -31,40 +37,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link rel="stylesheet" href="css/index.css">
+
     <title>Document</title>
 </head>
 
 <body>
+
     <div class="container">
-    <form action="" class="addPromotionForm">
-            <label for="addPromotion">add promotion</label>
-            <input type="text" name="namePromotion" id="addPromotion">
-            <input type="submit" name = "insert">
-        </form>      
+        <form action="" method="POST" class="addPromotionForm">
+            <label for="addPromotion">add pormotion</label>
+            <input type="text" id="addPromotion" name="namePromotion" placeholder ="add Promotion">
+            <input type="submit" class="addButton">
+        </form>
         <input class="search" placeholder="Rechercher" id="search" name ="searchName">
-        <table class="table">
-            <thead class="thead">
+
+
+        <table class="table" id="tbody">
+            <thead>
                 <tr>
                     <th scope="col">promotion</th>
+                    <th colspan="3">action</th>
                 </tr>
             </thead>
-            <tbody class="tbody" id="tbody">
+            <tbody>
                 <?php
             foreach($resultData as $rowData){
 
                 echo 
                     '<tr>
                         <td>'.$rowData['namePromotion'].'</td>
-                        <td><a class="link" href="updateForm.php?updateId='.$rowData['idPromotion'].'">edit</a></td>
-                        <td><a class="link" href ="delete.php?deletId='.$rowData['idPromotion'].'">delet</a></td>
+                        <td><a href="updateForm.php?updateId='.$rowData['idPromotion'].'">edit</a></td>
+                        <td><a href ="form.php?deletId='.$rowData['idPromotion'].'">delet</a></td>
                     </tr>';
                 }
                 ?>
             </tbody>
         </table>
     </div>
-
-
     <script src="serch.js"></script>
 </body>
 
