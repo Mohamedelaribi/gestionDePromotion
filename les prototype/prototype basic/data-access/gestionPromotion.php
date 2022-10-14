@@ -9,7 +9,7 @@
         public function addtData($promotion){
             
 
-            $namePromotion = $promotion->getname();            
+            $namePromotion = $promotion->getname();
 
             $insert = "INSERT INTO promotion (namePromotion) VALUES('$namePromotion')";
 
@@ -29,8 +29,8 @@
         }
 
 
-        public function selectById($updateId){
-            $selectId = "SELECT * FROM promotion WHERE idPromotion ='$updateId'";
+        public function selectById($promotion){
+            $selectId = "SELECT * FROM promotion WHERE idPromotion ='$promotion'";
             $idResult = mysqli_query($this->connecte(),$selectId);
 
             if($idResult-> num_rows == 1){
@@ -39,12 +39,22 @@
         }
 
 
-        public function updatePromotion($id,$newName){
-            $update = "UPDATE `promotion` SET `namePromotion`='$newName' WHERE `idPromotion`='$id";
-            $updateRsult = mysqli_query($this->connecte(),$update);
+        public function updatePromotion($promotion){    
+            $getId = $promotion->getId();
+            $getName = $promotion->getname();
+            $update = "UPDATE `promotion` SET `namePromotion`='$getName' WHERE `idPromotion`='$getId'";
+            mysqli_query($this->connecte(),$update);
 
         }
+
+        public function delet($promotion){
+            $delet = "DELETE FROM promotion WHERE `idPromotion`='$promotion'";
+            mysqli_query($this->connecte(),$delet);
+        }
     }
+
+
+
 
 
 ?>

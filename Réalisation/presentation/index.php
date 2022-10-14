@@ -1,32 +1,6 @@
 <?php
-
-    include '../data-access/gestionPromotion.php';
-
-    $promotionObject = new GestionPromotion();
-
-    if(!empty($_POST)){
-
-
-        $name = $_POST["namePromotion"];
-        $promotion = new Promotion(NULL,$name);
-        $promotionObject->addtData($promotion);
-    }
-
-        $resultData = $promotionObject->selectData();
-
-        if($resultData){
-
-        }
-
-
-        if(isset($_GET['deletId'])){
-          $idDelet = $_GET['deletId'];
-          $promotionObject->delet($idDelet);
-          
-        }
-
-
-        ?>
+    include "../data-access/insert.php";
+?>
 
 
 
@@ -42,14 +16,6 @@
 </head>
 <body>
     
-
-<form action="" method="POST">
-    <label for="addPromotion">add pormotion</label>
-    <input type="text" id="addPromotion" name="namePromotion">
-    <input type="submit">
-</form>
-
-
 <table class="table">
   <thead>
     <tr>
@@ -73,6 +39,3 @@
 </table>
 </body>
 </html>
-
-
-

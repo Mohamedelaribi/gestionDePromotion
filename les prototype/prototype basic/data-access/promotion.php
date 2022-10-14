@@ -5,7 +5,6 @@
         private $idPromotion;
         private $namePromotion;
 
-
         function   __construct($idPromotion,$namePromotion){
             $this->idPromotion = $idPromotion;
             $this->namePromotion = $namePromotion;
