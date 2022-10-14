@@ -30,8 +30,8 @@
                 echo 
                     '<tr>
                         <td>'.$rowData['namePromotion'].'</td>
-                        <td><a href="update.php?updateId='.$rowData['idPromotion'].'">edit</a></td>
-                        <td><a href ="form.php?deletId='.$rowData['idPromotion'].'">delet</a></td>
+                        <td><a href="updateForm.php?updateId='.$rowData['idPromotion'].'">edit</a></td>
+                        <td><a href ="../data-access/delete.php?deletId='.$rowData['idPromotion'].'">delet</a></td>
                     </tr>';
                 }
                 ?>

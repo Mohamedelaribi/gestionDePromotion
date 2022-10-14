@@ -53,7 +53,7 @@
 
             $update = "UPDATE promotion SET namePromotion = '$getName' WHERE idPromotion = $getId";
 
-            mysqli_query($this->connect(),$update);
+            mysqli_query($this->connecte(),$update);
         }
  
 
@@ -62,7 +62,7 @@
 
             $delet = "DELETE FROM promotion WHERE idPromotion = '$promotion'";
 
-            mysqli_query($this->connect(),$delet);
+            mysqli_query($this->connecte(),$delet);
         }
 
 

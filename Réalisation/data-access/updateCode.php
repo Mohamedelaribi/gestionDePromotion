@@ -9,9 +9,21 @@
         $id = $_POST["idPromotion"];
         $newName = $_POST["newName"];
         $promotion = new Promotion($id,$newName);
-        $promotionObject->updata($promotion);
+        $promotionObject->update($promotion);
         header('location: ../presentation/index.php');
 
+    }
+
+
+    if(isset($_GET['updateId'])){
+        $promotionObject = new GestionPromotion();
+        $id = $_GET['updateId'];
+        $result = $promotionObject->selectById($id);
+        if($result){
+            foreach($result as $singlePromotion){
+
+            }
+        }
     }
 
 
